@@ -1,0 +1,70 @@
+
+<form [formGroup]="Deleteform">
+    <h1 class="text-center">Delete Question</h1>
+    
+     
+   
+    <label>Technology:</label>
+    <select formControlName="SubjectName">
+        <option  value="" >Select</option>
+      <option value="java">Java</option>
+      <option value="c#.Net">.NET</option>
+      <option value="SQL">Sql</option>
+    </select>&nbsp;&nbsp;
+
+
+
+    <label>Level:</label>
+    <select formControlName="LevelName">
+      <option value="">Select</option>
+      <option value="Level_1">Level1</option>
+      <option value="Level_2">Level2</option>
+      <option value="Level_3">Level3</option>
+    </select>
+    <p>
+        <button type="submit" class="btn btn-info" (click)=" doclick() " >See Question </button>
+        </p>
+    <br/>
+    <br/>
+
+    
+    <table class="table table-hover">
+        <thead class="table-borderless table-secondary">
+            <tr>
+                <th scope="col">Level</th>
+                <th scope="col">Subject</th> 
+                <th scope="col">Question</th>
+                <th scope="col">Option1</th>
+                <th scope="col">Option2</th>
+                <th scope="col">Option3</th>
+                <th scope="col">Option4</th>
+                <th scope="col">Correct Answers</th>
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>        
+            <tr *ngFor="let q of result,let id=index">
+                      <td>{{q.level}}</td>
+                      
+                      <td>{{q.subject}}</td>
+                      <td>{{q.question}}</td>
+                      <td>{{q.option1}}</td>
+                      <td>{{q.option2}}</td>
+                      <td>{{q.option3}}</td>
+                      <td>{{q.option4}}</td>
+                      <td>{{q.correctanswers}}</td>
+
+                   
+                      
+                      <td><button  class="btn btn-danger" (click)="removequestion(q.questionId)" >Delete</button></td>
+                      <br>
+
+                  
+                    </tr>   
+                   
+            
+                    
+         </tbody>
+    </table>
+
+</form>

@@ -1,0 +1,68 @@
+
+
+
+
+
+<form [formGroup]="AddQuestion">
+
+
+   <div class="container">
+            <h2>Add Questions</h2>
+
+
+            <p class="main">Note:subject: 1 for Java,2 for c# ,3 for sql </p>
+ 
+      
+          <div class="form-group">
+                <label>Level:</label>
+                <input type="number"class="form-control" formControlName="LevelId" >
+                <div *ngIf="LevelId && LevelId.invalid && LevelId.touched"  class="text-danger">level is Required</div>
+                <label>Subject:</label>
+                <input type="number"class="form-control" formControlName="SubjectId" >
+                <div *ngIf="SubjectId && SubjectId.invalid && SubjectId.touched" class="text-danger">subject is Required</div>
+          </div>
+     
+          <label>Question:</label>
+         <input type="text"class="form-control" formControlName="question" >
+         <div *ngIf="question && question.invalid && question.touched" class="text-danger" >Question is required</div>
+       
+
+    
+        
+          <label>Option 1:</label>
+         <input type="text"class="form-control" formControlName="option1" >
+         <div *ngIf="option1 && option1.invalid && option1.touched" class="text-danger" >Option1 is Required</div>
+       
+        
+         <label>Option 2:</label>
+         <input  type="text"class="form-control" formControlName="option2" >
+         <div *ngIf="option2 && option2.invalid && option2.touched" class="text-danger">option2 is Required</div>
+
+            <label>Option 3:</label>
+            <input  type="text"class="form-control" formControlName="option3" >
+            
+
+         
+    
+            <label>Option 4:</label>
+            <input  type="text"class="form-control" formControlName="option4" >
+            
+      
+            
+
+
+           
+            <label>CorrectAnswer:</label>
+            <input  type="text"class="form-control" formControlName="correctanswers" >
+            <div *ngIf="correctanswers && correctanswers.invalid && correctanswers.touched" class="text-danger">Add Correct Answer  </div>
+          
+                
+    
+
+            <button class="btn btn-primary"[disabled]="!AddQuestion.valid"  (click)=" Addquestion()" >Add Question</button>
+         
+    </div>
+        
+</form>
+
+    

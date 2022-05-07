@@ -1,0 +1,71 @@
+<form [formGroup]="searchstudent">
+
+ 
+  <label>Technology:</label>
+  <select formControlName="SubjectName">
+    <option>Select</option>
+    <option value="java">Java</option>
+    <option value="c#.Net">.NET</option>
+    <option value="SQL">Sql</option>
+  </select>
+
+  
+  <div *ngIf="SubjectName && SubjectName.invalid && SubjectName.touched"  class="text-danger">Technology is Required</div><br/>
+  <label>State</label>
+  <input type="text" placeholder="State" formControlName="State" />
+  <div *ngIf="State && State.invalid && State.touched"  class="text-danger">State is Required</div><br/>
+
+
+<label>City:</label>
+  <input type="text" placeholder="City" formControlName="City" />
+  <div *ngIf="City && City.invalid && City.touched"  class="text-danger">City is Required</div><br/><br/>
+  <label>Level:</label>
+  <select formControlName="LevelName">
+    <option>Select</option>
+    <option value="Level_1">Level1</option>
+    <option value="Level_2">Level2</option>
+    <option value="Level_3">Level3</option>
+  </select>
+  <div *ngIf="LevelName && LevelName.invalid && LevelName.touched"  class="text-danger">LevelName is Required</div><br/>
+
+
+
+  <label>Marks:</label>
+  <input type="number" placeholder="Marks" formControlName="MarksObtained" />
+ 
+  <div *ngIf="MarksObtained && MarksObtained.invalid && MarksObtained.touched"  class="text-danger">MarksObtained is Required</div><br/>
+
+  <button type="submit" class="btn btn-success"[disabled]="!searchstudent.valid" (click)="DisplayStudent()">Search Student </button>
+
+  <br />
+  <br />
+  <hr />
+  <table>
+    <thead>
+      <tr>
+        <th>Name:</th>
+        <th>Email:</th>
+        <th>Mobile No:</th>
+        <th>City:</th>
+        <th>State:</th>
+      </tr>
+    </thead>
+
+  <tbody>
+    <tr *ngFor="let rec of stud">
+      <td>{{rec.name}}</td>
+      <td>{{rec.email}}</td>
+      <td>{{rec.mobile_No}}</td>
+      <td>{{rec.city}}</td>
+      <td>{{rec.state}}</td>
+     
+    </tr>
+   
+    <tr *ngIf="!stud.length">
+      <td colspan="5" style="text-align: center;">No data Found</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+</form>

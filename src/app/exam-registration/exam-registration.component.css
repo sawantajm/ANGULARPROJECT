@@ -1,0 +1,28 @@
+form{
+    box-sizing: border-box;
+  
+}
+.container {
+  padding: 16px;
+  width: 350px;
+  margin: auto;
+  border: groove;
+  width: 700px;
+  height:1200px;
+  margin: auto;
+  padding: 2em
+}
+h2{
+  text-align: center;
+}
+
+
+
+input,button,select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
